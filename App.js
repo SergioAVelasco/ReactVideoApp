@@ -9,6 +9,10 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, Image} from 'react-native';
 import iconImage from './images/icons/borra.png'
+import Home from './src/screens/containers/home' 
+import Header from './src/sections/components/header'
+import Suggestions from './src/videos/containers/suggestion-list'
+import SuggestionsLayout from './src/videos/components/suggestion-list-layout'
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -21,11 +25,16 @@ type Props = {};
 export default class App extends Component<Props> {
   render() {
     return (
-      <View style={styles.container}>
-        <Image source = {iconImage} />
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
-      </View>
+      <Home>
+        <Header >
+          <Text>
+            Keko1
+          </Text>
+        </Header>
+        <SuggestionsLayout title = "Titulo">
+          <Suggestions />
+        </SuggestionsLayout>
+      </Home>
     );
   }
 }
