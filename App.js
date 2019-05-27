@@ -13,6 +13,7 @@ import Home from './src/screens/containers/home'
 import Header from './src/sections/components/header'
 import Suggestions from './src/videos/containers/suggestion-list'
 import SuggestionsLayout from './src/videos/components/suggestion-list-layout'
+import API from './src/utils/api'
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -23,6 +24,13 @@ const instructions = Platform.select({
 
 type Props = {};
 export default class App extends Component<Props> {
+
+  async componentDidMount(){
+    const movies = await API.getSuggestion(10); 
+
+    
+  } 
+
   render() {
     return (
       <Home>
