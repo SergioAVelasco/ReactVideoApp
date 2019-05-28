@@ -12,7 +12,7 @@ import iconImage from './images/icons/borra.png'
 import Home from './src/screens/containers/home' 
 import Header from './src/sections/components/header'
 import Suggestions from './src/videos/containers/suggestion-list'
-import SuggestionsLayout from './src/videos/components/suggestion-list-layout'
+import CategoryList from './src/videos/containers/category-list'
 import API from './src/utils/api'
 
 const instructions = Platform.select({
@@ -24,11 +24,19 @@ const instructions = Platform.select({
 
 type Props = {};
 export default class App extends Component<Props> {
+  state = {
+    suggestionList: [], 
+    categoryList: [],
+  }
 
   async componentDidMount(){
-    const movies = await API.getSuggestion(10); 
-
+    const movies = await API.getSuggestion(4); 
+    const categories = await API.getList()
     
+    this.setState({
+      suggestionList: movies, 
+      categoryList: categories,
+    })
   } 
 
   render() {
@@ -39,9 +47,12 @@ export default class App extends Component<Props> {
             Keko1
           </Text>
         </Header>
-        <SuggestionsLayout title = "Titulo">
-          <Suggestions />
-        </SuggestionsLayout>
+          <CategoryList  
+            list = {this.state.categoryList}
+          />
+          <Suggestions 
+            list = {this.state.suggestionList}
+          />
       </Home>
     );
   }

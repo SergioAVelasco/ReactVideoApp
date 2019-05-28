@@ -1,21 +1,22 @@
 import React, { Component } from 'react'
-import { Text, View, FlatList } from 'react-native'
+import { FlatList } from 'react-native'
+import Layout from './../components/category-list-layout'
 import Empty from './../components/empty'
-import Separator from './../components/vertical-separator'
+import Separator from './../../sections/components/horizontal-separator'
 import Suggestion from './../components/suggestion'
-import Layout from './../components/suggestion-list-layout'
 
-class Suggestionlist extends Component {
+class Categorylist extends Component {
 
     renderEmpty = ()=><Empty text = "No hay sugerencias" />;
     itemSeparator = ()=><Separator />;
     renderItem = ({item}) => {return(<Suggestion {...item} />)};
     keyExtractor = (item) => item.id.toString()
-
+    
     render() {
         return (
-            <Layout title = "Recomendado para ti...">
+            <Layout title = "Categorias">
                 <FlatList 
+                    horizontal
                     keyExtractor = {this.keyExtractor}
                     data = {this.props.list}       
                     ListEmptyComponent = {this.renderEmpty}
@@ -27,4 +28,4 @@ class Suggestionlist extends Component {
     }
 }
 
-export default Suggestionlist
+export default Categorylist

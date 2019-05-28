@@ -6,14 +6,16 @@ const Suggestion = (props) => {
         <View style = {styles.container}>
             <View style = {styles.left}>
                 <Image 
-                    source = {require('./../../../images/cover.png')} 
+                    source = {{
+                                uri: props.medium_cover_image
+                            }} 
                     style = {styles.cover}
                 />
             </View>
             <View style = {styles.right}>
                 <Text style = {styles.title}>{props.title}</Text>
-                <Text style = {styles.author}>{props.author}</Text>
-                <Text style = {styles.genreText}>{props.genre}</Text>
+                <Text style = {styles.author}>{props.synopsis}</Text>
+                <Text style = {styles.rating}>{props.rating}</Text>
                 <Text style = {styles.year}>{props.year}</Text>
             </View>
         </View>
@@ -28,13 +30,14 @@ const styles = StyleSheet.create({
 
     },
     right:{
-        paddingLeft: 10,
+        paddingLeft: 0,
+        paddingRight: 180,
         justifyContent: 'space-around'
     },
     cover:{
         width: 150,
         height: 100, 
-        resizeMode: 'cover', 
+        resizeMode: 'contain', 
     },
     title:{
         fontSize: 18, 
@@ -63,8 +66,9 @@ const styles = StyleSheet.create({
         paddingVertical: 5,
         paddingHorizontal: 7,
     }, 
-    genreText:{
-        fontSize: 11
+    rating:{
+        fontSize: 16, 
+        color : 'green'
     },
 })
 
