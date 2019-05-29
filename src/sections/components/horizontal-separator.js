@@ -12,7 +12,7 @@ const HorizontalSeparator = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1, 
-        marginHorizontal: 1,
+        marginHorizontal: 5,
     }
 })
 

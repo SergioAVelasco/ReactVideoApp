@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Text, View, FlatList } from 'react-native'
 import Empty from './../components/empty'
-import Separator from './../components/vertical-separator'
+import Separator from '../../sections/components/vertical-separator'
 import Suggestion from './../components/suggestion'
 import Layout from './../components/suggestion-list-layout'
 
@@ -14,7 +14,7 @@ class Suggestionlist extends Component {
 
     render() {
         return (
-            <Layout title = "Recomendado para ti...">
+            <Layout title = "Recomendado para keko ...">
                 <FlatList 
                     keyExtractor = {this.keyExtractor}
                     data = {this.props.list}       

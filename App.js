@@ -14,6 +14,8 @@ import Header from './src/sections/components/header'
 import Suggestions from './src/videos/containers/suggestion-list'
 import CategoryList from './src/videos/containers/category-list'
 import API from './src/utils/api'
+import Video from 'react-native-video'
+import Player from './src/player/containers/player'
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -42,11 +44,8 @@ export default class App extends Component<Props> {
   render() {
     return (
       <Home>
-        <Header >
-          <Text>
-            Keko1
-          </Text>
-        </Header>
+          <Header />
+          <Player />
           <CategoryList  
             list = {this.state.categoryList}
           />
@@ -74,5 +73,16 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#333333',
     marginBottom: 5,
+  },
+  backgroundVideo: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
+  },
+  videoContainer: {
+    flex: 1,
+    height: 100,
   },
 });
