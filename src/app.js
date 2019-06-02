@@ -6,6 +6,7 @@ import Suggestions from './videos/containers/suggestion-list'
 import API from './utils/api'
 import { connect } from 'react-redux'
 import Movie from './screens/containers/movie'
+import Search from './sections/containers/search'
 
 class AppLayout extends Component {
 
@@ -23,6 +24,7 @@ class AppLayout extends Component {
         return (
             <Home>
                 <Header />
+                <Search />
                 <CategoryList />
                 <Suggestions />
             </Home>
