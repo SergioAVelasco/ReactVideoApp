@@ -15,6 +15,8 @@ class AppLayout extends Component {
         this.props.dispatch({type:'SET_SUGGESTION_LIST',payload:{suggestionList}})
         const categoryList = await API.getList()
         this.props.dispatch({type:'SET_CATEGORY_LIST',payload:{categoryList}})
+        console.log(categoryList)
+        console.log(this.props)
     } 
 
     render() {
